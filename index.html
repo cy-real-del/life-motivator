@@ -4,16 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мотиватор Жизни</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-        <!-- Telegram Mini Apps Analytics SDK --><script src="https://cdn.jsdelivr.net/npm/@telegram-apps/analytics/dist/umd/index.js"></script>
+   
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+<!-- Telegram Mini Apps Analytics SDK -->
+<script
+    async
+    src="https://tganalytics.xyz/index.js"
+    onload="initAnalytics()"
+    type="text/javascript"
+></script>
 
 <script>
-    window.analytics = TelegramAppsAnalytics.init({
-        token: "eyJhcHBfbmFtZSI6ImxpZmVfbW90aXZhdG9yIiwiYXBwX3VybCI6Imh0dHBzOi8vdC5tZS9tb3RpdmF0b3JfZGF5c19ib3QiLCJhcHBfZG9tYWluIjoiaHR0cHM6Ly9naXRodWIuY29tL2N5LXJlYWwtZGVsL2xpZmUtbW90aXZhdG9yIn0=!pD+Q6y5baw8hcwBEoCjetvTgpWVS3rPvTpVaNNg5I68=",
-        appName: "life_motivator"
-    });
+    function initAnalytics() {
+        if (!window.telegramAnalytics) return;
 
-    analytics.track("app_open");
+        window.telegramAnalytics.init({
+            token: 'eyJhcHBfbmFtZSI6ImxpZmVfbW90aXZhdG9yIiwiYXBwX3VybCI6Imh0dHBzOi8vdC5tZS9tb3RpdmF0b3JfZGF5c19ib3QiLCJhcHBfZG9tYWluIjoiaHR0cHM6Ly9naXRodWIuY29tL2N5LXJlYWwtZGVsL2xpZmUtbW90aXZhdG9yIn0=!pD+Q6y5baw8hcwBEoCjetvTgpWVS3rPvTpVaNNg5I68=',
+            appName: 'life_motivator'
+        });
+
+        // при желании — своё событие
+        window.telegramAnalytics.track('app_open');
+    }
 </script>
     <style>
         * {
