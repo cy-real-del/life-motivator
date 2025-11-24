@@ -294,7 +294,14 @@
 
     <script>
         // Инициализация Telegram Web App
-        let tg = window.Telegram.WebApp;
+        let tg = window.Telegram?.WebApp || { 
+    expand: () => {}, 
+    ready: () => {}, 
+    MainButton: { show(){}, hide(){}, setText(){}, onClick(){} },
+    HapticFeedback: { notificationOccurred(){} },
+    sendData(){},
+    initDataUnsafe: null
+    };
         tg.expand();
         tg.ready();
 
